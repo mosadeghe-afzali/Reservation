@@ -10,12 +10,7 @@ class PassengerController
 
     public function addPassengers()
     {
-//        var_dump($_POST);
-//        exit();
         $passengers = new Passenger();
         $passengers->insertPassengers($_POST);
     }
-
-
-
 }

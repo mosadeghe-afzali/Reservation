@@ -132,8 +132,6 @@
 echo '<div class="image"> <img src=../uploads/' .$item['image'] .'></div><br>';
 ?>
 <?php
-
-
 ?>
 </div>
 </form>

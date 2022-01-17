@@ -5,7 +5,6 @@ include_once 'model/user.php';
 include_once 'helper/RegisterValidation.php';
 class RegisterController
 {
-
     public function addUser()
     {
         try {

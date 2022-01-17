@@ -1,16 +1,22 @@
 <?php
-require_once 'vendor/autoload.php';
+
 use Carbon\Carbon;
+require_once 'vendor/autoload.php';
 require_once 'helper/reserveValidationException.php';
-class ReserveCarValidation  {
+
+class ReserveCarValidation
+{
     public $errors = '';
     public $curentDate;
     public $startDateTime;
     public $endDateTime;
-     public function __construct($startDateTime , $endDateTime){
+
+     public function __construct($startDateTime , $endDateTime)
+     {
          $this->startDateTime= $startDateTime;
          $this->endDateTime= $endDateTime;
      }
+
     //Checking for correct selection time:
     function checkDuration ()
     {
@@ -21,6 +27,7 @@ class ReserveCarValidation  {
             $this->errors .=  "least reserve time is 1.30 hour <br> ";
         }
     }
+
     // checking for not reserving for past times:
     function checkingPastTime()
     {
@@ -31,6 +38,7 @@ class ReserveCarValidation  {
             $this->errors .=  "your selected date was expired<br>";
         }
     }
+
 // checking for not reserving for more than 2 month later:
     function checkingDateReserve ()
     {
@@ -42,16 +50,18 @@ class ReserveCarValidation  {
             $this->errors .= "you cant reserve for more than 2 month please select near times <br>";
         }
     }
-    public function getReserveErrors(){
+
+    public function getReserveErrors()
+    {
         if (!empty ($this->errors))
             throw new ReserveValidationException($this->errors);
     }
-    public function validationRequest(){
+
+    public function validationRequest()
+    {
         $this->checkDuration();
         $this->checkingPastTime();
         $this->checkingDateReserve();
         $this->getReserveErrors();
     }
-
-
 }

@@ -1,19 +1,20 @@
 <?php
 require_once 'helper/DbConnection.php';
-class CarReserve{
+
+class CarReserve
+{
     public $startDateTime;
     public $endDateTime;
     public $carId;
     public $userId;
-
 
     public function __construct($startDateTime, $endDateTime , $carId)
     {
         $this->startDateTime = $startDateTime;
         $this->endDateTime= $endDateTime;
         $this->carId= $carId;
-
     }
+
     public function insertData()
     {
        $conn= new DbConnection();
@@ -24,13 +25,11 @@ class CarReserve{
         $user= $connection->query($sql2);
         if($user->num_rows>0){
             $row= $user->fetch_assoc();
-             $uId= $row['id'];
+            $uId= $row['id'];
             $this->userId = $uId;
             $stmt= $connection->prepare("INSERT INTO car_reserve (user_id , car_id, start_date, end_date ) VALUES (?,?,?,?)");
             $stmt->bind_param('ssss' , $this->userId , $this->carId , $this->startDateTime, $this->endDateTime);
             $stmt->execute();
-
         }
     }
-
 }
