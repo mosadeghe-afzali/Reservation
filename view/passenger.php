@@ -13,8 +13,8 @@
 <button type="button" onclick="passengers()">Try it</button><br><br>
 <form id="form" action="/reservation/PassengerController/addPassengers/" method="post">
 </form>
-<script>
 
+<script>
     function passengers(){
         var num= document.getElementById("pn").value;
         for(var i=1 ; i<=num ; i++){
@@ -41,11 +41,7 @@
         document.getElementById("form").appendChild(button)
 
     }
-
-
-
 </script>
 
-</form>
 </body>
 </html>

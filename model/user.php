@@ -51,8 +51,6 @@ class User
         } else {
             header('Location:/reservation/LoginController/loginPage/?message= your username or password is wrong');
         }
-
     }
 }
-//$user= new User();
-//var_dump ($user->setLoginSession());
+

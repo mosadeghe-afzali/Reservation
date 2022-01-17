@@ -25,9 +25,9 @@ class RegisterValidation
         $this->confirmPassword= $confirmPassword;
         $this->submit = $submit;
     }
-        public function checkIsSet()
-    {
 
+    public function checkIsSet()
+    {
         if (!isset($this->submit) || !isset($this->name) || !isset($this->family) || !isset($this->mobile)
             || !isset($this->email) || !isset($this->username) || !isset($this->password) || !isset($this->confirmPassword))
         {
@@ -89,6 +89,5 @@ class RegisterValidation
         $this->getErrors();
 
     }
-
 }
 

@@ -21,7 +21,6 @@ class Cars
             while ($row = $result->fetch_assoc()) {
                 $list[] = $row;
             }
-
         }
         return $list;
     }
@@ -39,20 +38,15 @@ class Cars
             while ($row = $result->fetch_assoc()) {
                 $list[] = $row;
             }
-
         }
+
         if ($result2->num_rows > 0) {
             while ($row2 = $result2->fetch_assoc()) {
                 $dateTimes[] = $row2;
             }
-
         }
        $godData= [ $list , $dateTimes ];
 
         return $godData;
-
     }
 }
-//
-//$car = new Cars();
-//var_export($car->carProperty('بنز'));
